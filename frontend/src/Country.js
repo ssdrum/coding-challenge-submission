@@ -1,8 +1,11 @@
-import { React } from "react"
+import React from "react";
 
 const Country = ({ data }) => {
+  return (
+    <div id="country-container">
+      {data[0].name.official}
+    </div>
+  )
+};
 
-  return (<h1>I am {data.name.common}</h1>)
-}
-
-export default Country
+export default Country;
