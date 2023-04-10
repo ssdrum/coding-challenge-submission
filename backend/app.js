@@ -4,9 +4,11 @@ const cors = require('cors');
 const port = 8000;
 const axios = require('axios')
 
-// Allow cors
+// Allows cors
 app.use(cors())
 
+// Main API endpoint. Takes a country name as a GET parameter and returns
+// a json object containing information about the country.
 app.get("/search/:country", (req, res) => {
   const country = req.params.country
   const url = `https://restcountries.com/v3.1/name/${country}`
@@ -23,7 +25,7 @@ app.get("/search/:country", (req, res) => {
 
 // 404 page
 app.get("*", (req, res) => {
-  res.send("Page not found", 404)
+  res.status(404).send("Page not found")
 })
 
 
