@@ -6,7 +6,6 @@ const App = () => {
   const [inputText, setInputText] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [countryData, setCountryData] = useState(null)
-  const [error, setError] = useState(false)
 
   const handleSubmit = async e => {
     e.preventDefault() // Avoids re-rendering on submit
@@ -19,33 +18,32 @@ const App = () => {
       }
       const data = await response.json()
       setCountryData(data)
-      setError(false)
       setIsLoading(false)
+      setInputText("")
     } catch (error) {
-      console.log(error)
       setCountryData(null)
-      setError(true)
       setIsLoading(false)
+      setInputText("")
+      alert("Country not found")
     }
   }
 
-return (
-  <main>
-    <form onSubmit={e => handleSubmit(e)}
-      className={error ? "error" : null}>
-      <div id='input-box'>
-        <input type="text"
-          placeholder='Search a country...'
-          value={inputText}
-          onChange={e => setInputText(e.target.value)}
-        />
-        <button type='submit'>Search</button>
-      </div>
-    </form>
-    {isLoading && <Spinner />}
-    {countryData && <Country data={countryData} />}
-  </main>
-)
+  return (
+    <main>
+      <form onSubmit={e => handleSubmit(e)}>
+        <div id='input-box'>
+          <input type="text"
+            placeholder={'Search a country...'}
+            value={inputText}
+            onChange={e => setInputText(e.target.value)}
+          />
+          <button type='submit'>Search</button>
+        </div>
+      </form>
+      {isLoading && <Spinner />}
+      {countryData && <Country data={countryData} />}
+    </main >
+  )
 }
 
 export default App;

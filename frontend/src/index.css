@@ -1,8 +1,10 @@
+/* Variables */
 :root {
     --main: #4070f4;
     --max-width: 900px;
 }
 
+/* Resets */
 * {
     margin: 0;
     padding: 0;
@@ -44,7 +46,7 @@ form {
     border: none;
     font-size: 18px;
     background-color: transparent;
-    margin-left: 20px;
+    padding: 20px;
 }
 
 #input-box button {
@@ -67,6 +69,10 @@ form {
     background: #668bf0
 }
 
+input.error::placeholder {
+    color: red;
+}
+
 /* Spinner */
 .spinner-container {
     position: fixed;
@@ -78,15 +84,68 @@ form {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5); /* Change the alpha value (0.7) to adjust the darkness */
+    z-index: 100;
 }
 
 /* Country info */
 #country-container {
     max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
     margin: auto;
     position: relative;
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
     border-radius: 8px;
+    padding: 1.5rem;
+}
+
+#country-flag {
+    max-width: 500px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+#country-flag img {
+    width: 100%; /* Set image width to 100% */
+    height: auto; /* Maintain image aspect ratio */
+}
+
+#country-content {
+}
+
+#country-content h1 {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+}
+
+#country-content .info-item {
+    margin-bottom: .8rem;
+    display: flex;
+}
+
+#country-content .info-label {
+    font-weight: 800;
+    margin-right: 0.3rem;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px){
+    #country-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+
+    #country-flag {
+        margin: auto;
+    }
+
+    #country-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
 }
