@@ -22,7 +22,7 @@ This is a simple web application that allows users to search for countries using
 1. Clone the repository to your local machine.
 2. Navigate to the root directory of the project.
 3. Create images and run containers by running `make run`
-4. Open a web browser and access the React frontend app at `http://localhost:3000` (or the specified port, if different).
+4. Open a web browser and access the React frontend app at `http://localhost:3000` (or the specified port, if changed).
 
 ## API Routes
 
@@ -32,7 +32,3 @@ This is a simple web application that allows users to search for countries using
 
 - The Express app includes basic error handling for handling API request errors, such as when the country name is not found or when there is an internal server error. Error responses are returned with appropriate status codes and error messages in JSON format.
 - The React frontend app can handle and display error messages from the Express API responses to provide feedback to the user when there is an error in the API request or response.
-
-## License
-
-- This project is open-source and available under the [MIT License](LICENSE).
